@@ -28,7 +28,8 @@ const flights = [
     
     function showFlights(flight){
         flightsBox.textContent = "";
-        flights.forEach (flight => {
+        flight.forEach (flight => {
+
             const flightCard = document.createElement('div')
             flightCard.classList.add('flights-card')
             flightsBox.appendChild(flightCard)
@@ -90,9 +91,37 @@ const flights = [
             priceDiv.appendChild(price)
             price.appendChild(pricePara)
 
-
-
         })
 
     }
     showFlights(flights)
+
+    //sort by price
+    const sortBtn = document.querySelector('.sort-by-price')
+        sortBtn.addEventListener('click' , () => {
+            let sorted = flights.slice().sort((a,b) => {
+                return a.price - b.price
+            })
+            showFlights(sorted)
+        })
+
+        //search bar
+        //filtered by from
+        let searchBar = document.querySelector('.search')
+        searchBar.addEventListener('input' , e => {
+            let filteredFrom = flights.filter(f => {
+                return f.from.toLowerCase().includes(e.target.value.toLowerCase())
+            })
+            showFlights(filteredFrom)
+        })
+
+        //filtered by to
+        searchBar.addEventListener('input' , e => {
+            let filteredTo = flights.filter(t => {
+                return t.to.toLowerCase().includes(e.target.value.toLowerCase())
+            })
+            showFlights(filteredTo)
+        })
+
+
+    
