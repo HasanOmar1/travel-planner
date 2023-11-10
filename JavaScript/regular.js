@@ -95,33 +95,28 @@ const flights = [
 
     }
     showFlights(flights)
-
-    //sort by price
-    const sortBtn = document.querySelector('.sort-by-price')
-        sortBtn.addEventListener('click' , () => {
-            let sorted = flights.slice().sort((a,b) => {
-                return a.price - b.price
-            })
-            showFlights(sorted)
-        })
-
-        //search bar
-        //filtered by from
+    
+    //search bar
+        //filtered by from / to
         let searchBar = document.querySelector('.search')
         searchBar.addEventListener('input' , e => {
-            let filteredFrom = flights.filter(f => {
-                return f.from.toLowerCase().includes(e.target.value.toLowerCase())
+            let filteredFromOrTo = flights.filter(f => {
+            return  f.from.toLowerCase().includes(e.target.value.toLowerCase())
+                    ||
+                    f.to.toLowerCase().includes(e.target.value.toLowerCase())
             })
-            showFlights(filteredFrom)
-        })
 
-        //filtered by to
-        searchBar.addEventListener('input' , e => {
-            let filteredTo = flights.filter(t => {
-                return t.to.toLowerCase().includes(e.target.value.toLowerCase())
+            showFlights(filteredFromOrTo)
+        })
+        
+        //sort by price
+        const sortBtn = document.querySelector('.sort-by-price')
+            sortBtn.addEventListener('click' , () => {
+                let sorted = flights.slice().sort((a,b) => {
+                    return a.price - b.price
+                })
+                showFlights(sorted)
             })
-            showFlights(filteredTo)
-        })
-
+        
 
     
