@@ -102,9 +102,30 @@ const flights = [
     }
     showFlights(flights)
 
-        function addFlight(){
-            
-        }
+            //add flights
+            const addFlightForm = document.querySelector('form')
+            addFlightForm.addEventListener('submit' , (e) => {
+                e.preventDefault();
+
+                const fromInput = document.querySelector('.add-from-input').value
+                const toInput = document.querySelector('.add-to-input').value
+                const departureInput = document.querySelector('.add-dep-date').value
+                const returnInput = document.querySelector('.add-ret-date').value
+                const priceInput = document.querySelector('.add-price-input').value
+
+                const newFlight = {
+                    from : fromInput,
+                    to : toInput,
+                    depart : departureInput,
+                    return : returnInput,
+                    price : priceInput,
+                };
+                flights.push(newFlight)
+                console.log(flights)
+                showFlights(flights)
+                addFlightForm.reset()
+            })
+        
 
 
 
@@ -130,6 +151,15 @@ const flights = [
         showFlights(sorted)
     })
 
-      
+    const AddFlightBtn= document.querySelector('.add-flights-btn')
+    const flightContainer = document.querySelector('.add-flights-container')
+    AddFlightBtn.addEventListener('click' , () => {
+        flightContainer.style.display = 'block'
+    })
+    
+    const closeFormBtn = document.querySelector('.close-form')
+    closeFormBtn.addEventListener('click' , () => {
+        flightContainer.style.display = 'none'
+    })
 
     
