@@ -9,13 +9,50 @@
   <body>
     <div class="bar">
       <p class="admin-mode">Admin Mode</p>
+      <button class="log-out">Log Out</button>
     </div>
+
     <div class="search-bar">
+      <button class="add-flights">Add new Flight</button>
       <label for="Search">Search:</label>
-      <input type="text" class="search" placeholder="search for flights" />
+      <input type="text" class="search" placeholder="Search for Flights" />
       <button class="sort-by-price">Sort by Price</button>
     </div>
-    <div class="flights"></div>
+
+    <div class="everything-container">
+      <div class="flights"></div>
+
+      <div class="add-flights-container">
+        <form action="">
+          <div class="add-from space">
+            <label for="from">From Which Country: </label>
+            <input class="add-input" type="text" />
+          </div>
+
+          <div class="add-to space">
+            <label for="to">To Which Country: </label>
+            <input class="add-input" type="text" />
+          </div>
+
+          <div class="add-departure space">
+            <label for="departure">Departure Date : </label>
+            <input class="add-input" type="date" />
+          </div>
+
+          <div class="add-return space">
+            <label for="return">Return Date : </label>
+            <input class="add-input" type="date" />
+          </div>
+
+          <div class="add-price space">
+            <label for="price">Price of the Flight: </label>
+            <input class="add-input" type="number" />
+          </div>
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+
     <script src="./JavaScript/admin.js"></script>
   </body>
 </html>

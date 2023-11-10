@@ -103,7 +103,6 @@ const flights = [
     showFlights(flights)
 
 
-
         //search bar
         //filtered by from / to
         let searchBar = document.querySelector('.search')
