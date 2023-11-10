@@ -23,9 +23,15 @@ const flights = [
         
     ]
 
+    //log-out button
+    const logOut = document.querySelector('.log-out')
+    logOut.addEventListener('click' , () => {
+        window.location.href = 'index.html'
+        localStorage.clear()
+    })
  
+    //add flights
     const flightsBox = document.querySelector('.flights')
-    
     function showFlights(flight){
         flightsBox.textContent = "";
         flight.forEach (flight => {
@@ -95,6 +101,7 @@ const flights = [
 
     }
     showFlights(flights)
+
 
 
         //search bar

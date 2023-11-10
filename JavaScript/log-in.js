@@ -40,12 +40,11 @@ form.addEventListener('submit', (e) =>{
     }
     if(checkBox.checked === false){
         if(isValid){
-            alert('Logged in')
             
-            localStorage.getItem('username')
-            localStorage.getItem('email')
-            localStorage.getItem('password')
-            // window.location.href = `https://www.google.com/`
+        localStorage.getItem('username')
+        localStorage.getItem('email')
+        localStorage.getItem('password')
+        window.location.href = 'regular.html'
         }
     }
     if(checkBox.checked === true){
@@ -53,9 +52,8 @@ form.addEventListener('submit', (e) =>{
         localStorage.getItem('username')
         localStorage.getItem('email')
         localStorage.getItem('password')
-        alert('Logged in')
         console.log(`Admin Mode`)
-        // window.location.href = `https://www.youtube.com/` 
+        window.location.href = 'admin.html'
     }
 }
   
