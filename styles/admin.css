@@ -48,7 +48,7 @@ body{
     margin-top: 3%;
     background-color: salmon;
     height: 50px;
-    width: 45%;
+    width: 50%;
     padding-top: 10px;
     padding-left: 1%;
     border-radius: 20px;
@@ -69,21 +69,30 @@ body{
     border: none;
     border-radius: 7px;
 }
-.sort-by-price , .add-flights-btn{
+.sort-by-price , .add-flights-btn , .update-price-btn{
     padding: 5px 15px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     margin-left: 1%;
 }
+
+/* buttons */
 .add-flights-btn{
     background-color: green;
     color: white;
     margin: 0;
 }
-.sort-by-price:hover{
-    opacity: 0.9;
+.update-price-btn{
+    background-color: green;
+    color: white;
 }
+
+.sort-by-price:hover , .add-flights-btn:hover , .update-price-btn:hover{
+    opacity: 0.7;
+    color: black;
+}
+
 
 /* flights box */
 .flights{
@@ -107,7 +116,6 @@ h3{
     padding-bottom: 2rem;
 }
 
-/* from-to  , departure-return*/
 .from-to , .departure-return{
     display: flex;  
 }
@@ -120,7 +128,6 @@ h3{
     margin-top: -20px;
 }
 
-/* info */
 .small{
     width: 20ch;
     color: green;
@@ -170,7 +177,7 @@ h3{
 
 /* close form btn */
 
-.close-form{
+.close-add-flight-form , .close-update-price-form{
     background-color: transparent;
     color: red;
     border:none;
@@ -182,6 +189,28 @@ h3{
     padding-top: 3%;
 
 }
-.close-form:hover{
+.close-add-flight-form:hover , .close-update-price-form:hover{
     opacity: 0.7;
 }
+
+
+/* update-price-container */
+
+.update-price-container{
+    background-color: skyblue;
+    width: 30%;
+    height: 350px;
+    line-height: 1.6rem;
+    margin-top: 0.7%;
+    padding-left: 3%;
+    border-radius: 20px;
+    display: none;
+    
+    
+}
+
+.update-price-container h3{
+    margin-top: 3%;
+    margin-left: 7%;
+}
+

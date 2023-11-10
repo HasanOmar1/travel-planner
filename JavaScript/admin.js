@@ -1,5 +1,6 @@
 const flights = [
     {
+            id: 1,
             from: "Berlin",
             to:'Prague',
             price: 100,
@@ -7,6 +8,7 @@ const flights = [
             return: new Date ('12.12.2023')
         },
     {
+            id: 2,
             from: "TLV",
             to:'Berlin',
             price: 60,
@@ -14,6 +16,7 @@ const flights = [
             return: new Date ('12.12.2023')
         },
     {
+            id: 3,
             from: "London",
             to:'Lisbon',
             price: 80,
@@ -103,7 +106,7 @@ const flights = [
     showFlights(flights)
 
             //add flights
-            const addFlightForm = document.querySelector('form')
+            const addFlightForm = document.querySelector('.add-flight-form')
             addFlightForm.addEventListener('submit' , (e) => {
                 e.preventDefault();
 
@@ -114,6 +117,7 @@ const flights = [
                 const priceInput = document.querySelector('.add-price-input').value
 
                 const newFlight = {
+                    id: flights.length + 1,
                     from : fromInput,
                     to : toInput,
                     depart : departureInput,
@@ -126,7 +130,6 @@ const flights = [
                 addFlightForm.reset()
             })
         
-
 
 
         //search bar
@@ -151,15 +154,37 @@ const flights = [
         showFlights(sorted)
     })
 
-    const AddFlightBtn= document.querySelector('.add-flights-btn')
-    const flightContainer = document.querySelector('.add-flights-container')
+    const AddFlightBtn = document.querySelector('.add-flights-btn')
+    const addFlightContainer = document.querySelector('.add-flights-container')
     AddFlightBtn.addEventListener('click' , () => {
-        flightContainer.style.display = 'block'
+        addFlightContainer.style.display = 'block'
+        updatePriceContainer.style.marginTop = "400px"
+        updatePriceContainer.style.marginLeft = "-30%"
     })
     
-    const closeFormBtn = document.querySelector('.close-form')
-    closeFormBtn.addEventListener('click' , () => {
-        flightContainer.style.display = 'none'
+    const closeAddFlightFormBtn = document.querySelector('.close-add-flight-form')
+    closeAddFlightFormBtn.addEventListener('click' , () => {
+        addFlightContainer.style.display = 'none'
+        updatePriceContainer.style.marginTop = "0"
+        updatePriceContainer.style.marginLeft = "0"
+
     })
 
+    const updatePriceBtn = document.querySelector(`.update-price-btn`)
+    const updatePriceContainer = document.querySelector('.update-price-container')
+    updatePriceBtn.addEventListener('click' , () => {
+        updatePriceContainer.style.display = 'block'
+    })
+
+    const closeUpdatePriceForm = document.querySelector(`.close-update-price-form`)
+    closeUpdatePriceForm.addEventListener('click' , (e) => {
+        e.preventDefault()
+        updatePriceContainer.style.display = 'none'
+    })
+
+
+
+
+
+    
     
