@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: gray;
+    margin: 0 10%;
+}
+
+/* flights box */
+.flights-card{
+    background-color: bisque;
+    width: 45%;
+    height: 290px;
+    line-height: 1.6rem;
+    margin-top: 1.5%;
+    padding-left: 1%;
+    padding-top: 1.5%;
+    
+
+}
+
+h3{
+    font-size: 1.1rem;
+    padding-bottom: 2rem;
+}
+
+/* from-to  , departure-return*/
+.from-to , .departure-return{
+    display: flex;
+
+    
+}
+.from , .dep {
+    padding-right: 33%;
+
+}
+
+
+/* info */
+.small{
+    width: 20ch;
+    color: green;
+    font-size: 0.89rem;
+}
+
+.price-container{
+    margin-left: 33%;
+    margin-top: -20px;
+}
+
+
+
