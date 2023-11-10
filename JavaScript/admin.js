@@ -102,6 +102,11 @@ const flights = [
     }
     showFlights(flights)
 
+        function addFlight(){
+            
+        }
+
+
 
         //search bar
         //filtered by from / to

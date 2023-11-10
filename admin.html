@@ -13,7 +13,7 @@
     </div>
 
     <div class="search-bar">
-      <button class="add-flights">Add new Flight</button>
+      <button class="add-flights-btn">Add new Flight</button>
       <label for="Search">Search:</label>
       <input type="text" class="search" placeholder="Search for Flights" />
       <button class="sort-by-price">Sort by Price</button>
@@ -23,7 +23,8 @@
       <div class="flights"></div>
 
       <div class="add-flights-container">
-        <form action="">
+        <button class="close-form">X</button>
+        <form>
           <div class="add-from space">
             <label for="from">From Which Country: </label>
             <input class="add-input" type="text" />
@@ -48,7 +49,7 @@
             <label for="price">Price of the Flight: </label>
             <input class="add-input" type="number" />
           </div>
-          <input type="submit" />
+          <input class="add-flight" type="submit" value="Add Flight" />
         </form>
       </div>
     </div>

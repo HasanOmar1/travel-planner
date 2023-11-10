@@ -69,14 +69,14 @@ body{
     border: none;
     border-radius: 7px;
 }
-.sort-by-price , .add-flights{
+.sort-by-price , .add-flights-btn{
     padding: 5px 15px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     margin-left: 1%;
 }
-.add-flights{
+.add-flights-btn{
     background-color: green;
     color: white;
     margin: 0;
@@ -133,11 +133,10 @@ h3{
 
     background-color: skyblue;
     width: 30%;
-    height: 330px;
+    height: 350px;
     line-height: 1.6rem;
     margin-top: 0.7%;
     padding-left: 3%;
-    padding-top: 1.5%;
     border-radius: 20px;
     
 }
@@ -154,7 +153,7 @@ h3{
     line-height: 1.7;
 }
 
-.submit-form{
+.add-flight{
     padding: 10px 50px;
     font-size: 1.2rem;
     margin-left: 25%;
@@ -164,4 +163,25 @@ h3{
     color: white;
     border-radius: 20px;
     cursor: pointer;
+}
+.add-flight:hover{
+    opacity: 0.7;
+}
+
+/* close form btn */
+
+.close-form{
+    background-color: transparent;
+    color: red;
+    border:none;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-left: 93%;
+    padding-bottom: 1%;
+    padding-top: 3%;
+
+}
+.close-form:hover{
+    opacity: 0.7;
 }
