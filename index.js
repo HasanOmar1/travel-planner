@@ -1,9 +1,11 @@
+//Page 1
 //inputs
 const form = document.querySelector('form')
 const username = document.querySelector('#username')
 const email = document.querySelector('#email')
 const password = document.querySelector('#password')
 const confirmPassword = document.querySelector('#confirmPassword')
+const checkBox = document.querySelector('#check-box')
 
 
 function showError(input , errorMessage){
@@ -14,13 +16,11 @@ input.classList.add(`error`)
 
 
 form.addEventListener('submit', (e) =>{
+    localStorage.setItem('username :' , username.value)
+    localStorage.setItem('email :' , email.value)
+    localStorage.setItem('password :' , password.value)
     e.preventDefault()
     let isValid = true;
-
-    if(username.value.length < 3){
-    showError(username , `name must be at least 3 characters long.`)
-    isValid = false;
-    }
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if(!emailRegex.test(email.value)){
@@ -38,9 +38,26 @@ form.addEventListener('submit', (e) =>{
         showError(confirmPassword, "passwords do not match");
         isValid = false;
     }
-    if(isValid){
-        alert('Form submitted successfully')
+    if(checkBox.checked === false){
+        if(isValid){
+            alert('Logged in')
+            
+            localStorage.getItem('username')
+            localStorage.getItem('email')
+            localStorage.getItem('password')
+            // window.location.href = `https://www.google.com/`
+        }
     }
+    if(checkBox.checked === true){
+    if(isValid){
+        localStorage.getItem('username')
+        localStorage.getItem('email')
+        localStorage.getItem('password')
+        alert('Logged in')
+        console.log(`Admin Mode`)
+        // window.location.href = `https://www.youtube.com/` 
+    }
+}
   
 })
 

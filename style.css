@@ -48,7 +48,7 @@ body {
     background-color: #45a049;
   }
 
-  input.error {
+  .error {
     border: 2px solid red;
     background-color: #fdd;
   }
@@ -58,4 +58,14 @@ body {
     font-size: 14px;
     margin-bottom: 20px;
     transition: color 0.3s ease;
+  }
+
+  .box{
+    margin-left: 40%;
+    padding-bottom: 5%;
+
+  }
+  
+  input[type="checkbox"]{
+    margin-left: 8%;
   }
