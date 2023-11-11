@@ -26,9 +26,14 @@ const flights = [
         
     ]
 
- 
+    const bookBtn = document.querySelector('.book-btn')
+    const confirmContainer = document.querySelector('.confirm-flight')
+    const closeBooking = document.querySelector('.close-book')
+    const totalPrice = document.querySelector('.price-of-flight')
+    const confirmBtn = document.querySelector('.confirm-btn')
+
     const flightsBox = document.querySelector('.flights')
-    
+    let priceTotalArr = []
     function showFlights(flight){
         flightsBox.textContent = "";
         flight.forEach (flight => {
@@ -155,11 +160,38 @@ const flights = [
                     toInput.readOnly = false;
                     fromInput.readOnly = false;
                 })
-            })    
+            })   
+            
+            addToCartBtn.addEventListener('click', () => {
+                let idOfBtn = +addToCartBtn.id 
+                const getId = flights.map(id => id.id)
+                const price = flights.map(p => p.price)
+                for(let i = 0 ; i < getId.length ; i++){
+                if(idOfBtn === getId[i]){
+                total = 0 + price[idOfBtn]
+                priceTotalArr.push(total)
+                let ValueOfAll = priceTotalArr.reduce((accum,curVal) => {
+                    return accum + curVal
+                },0)
+                totalPrice.textContent = `${ValueOfAll}$`
+            }
+
+            }
+
+            })
+            bookBtn.addEventListener('click' , () => {
+                confirmContainer.style.display = "block"
+                
+            }) 
         })
     }
     showFlights(flights)
 
+    //hardcoded [could'nt do it without it]
+    const allBtns = document.querySelectorAll('button')
+    allBtns[3].setAttribute('id' , 0)
+    allBtns[5].setAttribute('id' , 1)
+    allBtns[7].setAttribute('id' , 2)
 
     
     //search bar
@@ -190,26 +222,8 @@ const flights = [
                 window.location.href = 'index.html'
                 localStorage.clear()
             })
-            
-            // //BOOK NOW
-            const bookBtn = document.querySelector('.book-btn')
-            const confirmContainer = document.querySelector('.confirm-flight')
-            const closeBooking = document.querySelector('.close-book')
-            const totalPrice = document.querySelector('.price-of-flight')
-            const confirmBtn = document.querySelector('.confirm-btn')
 
-
-            bookBtn.addEventListener('click' , () => {
-                confirmContainer.style.display = "block"
-                let price = flights.map(p => p.price)
-                console.log(price)
-                let allPrice = price.reduce((accum , currVal) => {
-                    return accum + currVal
-                }, 0)
-                totalPrice.textContent = `${allPrice}$`
-                
-            })
-
+            //BOOK NOW
             closeBooking.addEventListener('click' , () => {
                 confirmContainer.style.display = "none"
             })
@@ -222,6 +236,5 @@ const flights = [
 
             })
             
-
-
+    
             
