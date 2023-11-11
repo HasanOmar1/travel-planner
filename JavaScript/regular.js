@@ -1,5 +1,6 @@
 const flights = [
     {
+            id: 0,
             from: "Berlin",
             to:'Prague',
             price: 100,
@@ -7,6 +8,7 @@ const flights = [
             return: new Date ('12.12.2023').toDateString()
         },
     {
+            id: 1,
             from: "TLV",
             to:'Berlin',
             price: 60,
@@ -14,6 +16,7 @@ const flights = [
             return: new Date ('12.12.2023').toDateString()
         },
     {
+            id: 2,
             from: "London",
             to:'Lisbon',
             price: 80,
@@ -25,7 +28,7 @@ const flights = [
 
  
     const flightsBox = document.querySelector('.flights')
-    
+
     function showFlights(flight){
         flightsBox.textContent = "";
         flight.forEach (flight => {
@@ -33,6 +36,11 @@ const flights = [
             const flightCard = document.createElement('div')
             flightCard.classList.add('flights-card')
             flightsBox.appendChild(flightCard)
+
+            const removeFromCartBtn = document.createElement('button')
+            removeFromCartBtn.textContent = `X`
+            removeFromCartBtn.classList.add('close-add-to-cart-btn')
+            flightCard.appendChild(removeFromCartBtn)
 
             const fromToDiv = document.createElement('div')
             fromToDiv.classList.add('from-to')
@@ -91,10 +99,35 @@ const flights = [
             priceDiv.appendChild(price)
             price.appendChild(pricePara)
 
+            const addToCartBtn = document.createElement('button')
+            addToCartBtn.textContent = `Add to Cart`
+            addToCartBtn.classList.add('add-to-cart-btn')
+            flightCard.append(addToCartBtn)
+
+            addToCartBtn.addEventListener('click' , () => {
+                removeFromCartBtn.style.display = 'block'
+                flightCard.style.marginLeft = "100%" 
+                addToCartBtn.style.display = 'none'
+
+            })
+
+            removeFromCartBtn.addEventListener('click' , () => {
+                flightCard.style.marginLeft = "10%" 
+                removeFromCartBtn.style.display = 'none'
+                addToCartBtn.style.display = 'block'
+
+
+            })
+
+
+
         })
+        
 
     }
     showFlights(flights)
+
+
     
     //search bar
         //filtered by from / to
@@ -131,3 +164,6 @@ const flights = [
 
             })
     
+            //checkout cart
+            const cartBox = document.querySelector('.cart-container')
+            
