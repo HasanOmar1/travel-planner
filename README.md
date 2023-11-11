@@ -20,7 +20,7 @@ Added localstorage to save the login info.
 
 #### Bugs that are not fixed yet :
 
-    (in user mode)
+                    (in user mode)
 
 - Localstorage all the flights instead the ones i bought.
 - Adding a flight to cart then removing still counts towards the total price.
