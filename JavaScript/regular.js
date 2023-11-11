@@ -155,7 +155,7 @@ const flights = [
                     toInput.readOnly = false;
                     fromInput.readOnly = false;
                 })
-            })
+            })    
         })
     }
     showFlights(flights)
@@ -191,7 +191,7 @@ const flights = [
                 localStorage.clear()
             })
             
-            //BOOK NOW
+            // //BOOK NOW
             const bookBtn = document.querySelector('.book-btn')
             const confirmContainer = document.querySelector('.confirm-flight')
             const closeBooking = document.querySelector('.close-book')
@@ -216,6 +216,8 @@ const flights = [
 
             confirmBtn.addEventListener('click' , () => {
                 confirmContainer.style.display = "none"
+                localStorage.setItem('myFlights' , JSON.stringify(flights))
+                localStorage.getItem('myFlights')
                 alert(`Booking Confirmed! You have Paid : ${totalPrice.textContent}`)
 
             })
