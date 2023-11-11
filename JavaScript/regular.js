@@ -233,6 +233,7 @@ const flights = [
                 localStorage.setItem('myFlights' , JSON.stringify(flights))
                 localStorage.getItem('myFlights')
                 alert(`Booking Confirmed! You have Paid : ${totalPrice.textContent}`)
+                window.location.href = window.location.href
 
             })
             
