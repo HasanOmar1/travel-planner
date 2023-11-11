@@ -37,6 +37,7 @@ const flights = [
             flightCard.classList.add('flights-card')
             flightsBox.appendChild(flightCard)
 
+            // [x]
             const removeFromCartBtn = document.createElement('button')
             removeFromCartBtn.textContent = `X`
             removeFromCartBtn.classList.add('close-add-to-cart-btn')
@@ -103,27 +104,57 @@ const flights = [
             addToCartBtn.textContent = `Add to Cart`
             addToCartBtn.classList.add('add-to-cart-btn')
             flightCard.append(addToCartBtn)
+            
 
+            const fromInput = document.createElement('input')
+            const toInput = document.createElement('input')
+
+            // add to cart button event listener
             addToCartBtn.addEventListener('click' , () => {
                 removeFromCartBtn.style.display = 'block'
-                flightCard.style.marginLeft = "100%" 
+                flightCard.style.marginLeft = "105%" 
                 addToCartBtn.style.display = 'none'
 
-            })
+                fromPara.addEventListener('click' , () => {
+                    fromPara.style.display = "none"
+                    fromInput.classList.add('change-input')
+                    fromInput.value = flight.from
+                    from.appendChild(fromInput)
 
+                    removeFromCartBtn.addEventListener('click' , () => {
+                        fromInput.readOnly = true;
+                        addToCartBtn.addEventListener('click' , () => {
+                          fromInput.readOnly = false;  
+                        })
+                    })
+                })
+                toPara.addEventListener('click' , () => {
+                    toPara.style.display = "none"
+                    toInput.classList.add('change-input')
+                    toInput.value = flight.to
+                    to.appendChild(toInput)
+
+                    removeFromCartBtn.addEventListener('click' , () => {
+                        toInput.readOnly = true;
+                        addToCartBtn.addEventListener('click' , () => {
+                          toInput.readOnly = false;  
+                        })
+                    })
+                })
+            })
+            //remove from cart button event listener [x]
             removeFromCartBtn.addEventListener('click' , () => {
                 flightCard.style.marginLeft = "10%" 
                 removeFromCartBtn.style.display = 'none'
                 addToCartBtn.style.display = 'block'
-
-
+                toInput.readOnly = true;
+                fromInput.readOnly = true;
+                addToCartBtn.addEventListener('click' , () => {
+                    toInput.readOnly = false;
+                    fromInput.readOnly = false;
+                })
             })
-
-
-
         })
-        
-
     }
     showFlights(flights)
 
