@@ -18,7 +18,7 @@ Added localstorage to save the login info.
 - Add extra flights
 - Update tickets price.
 
-#### Things that i have not finished yet :
+#### Bugs that are not finished yet :
 
-- Localstorage only the flights that i chose to buy.
+- Localstorage all the flights instead the ones i bought.
 - Adding a flight to cart then removing still counts towards the total price.
