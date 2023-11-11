@@ -28,11 +28,11 @@ const flights = [
 
  
     const flightsBox = document.querySelector('.flights')
-
+    
     function showFlights(flight){
         flightsBox.textContent = "";
         flight.forEach (flight => {
-
+            
             const flightCard = document.createElement('div')
             flightCard.classList.add('flights-card')
             flightsBox.appendChild(flightCard)
@@ -115,6 +115,7 @@ const flights = [
                 flightCard.style.marginLeft = "105%" 
                 addToCartBtn.style.display = 'none'
 
+                //Edit from
                 fromPara.addEventListener('click' , () => {
                     fromPara.style.display = "none"
                     fromInput.classList.add('change-input')
@@ -128,6 +129,7 @@ const flights = [
                         })
                     })
                 })
+                 //Edit To
                 toPara.addEventListener('click' , () => {
                     toPara.style.display = "none"
                     toInput.classList.add('change-input')
@@ -188,13 +190,12 @@ const flights = [
                 window.location.href = 'index.html'
                 localStorage.clear()
             })
-
-            //Cart
-            const cart = document.querySelector('.cart')
-            cart.addEventListener('click' , () => {
-
+            
+            //BOOK NOW
+            const bookBtn = document.querySelector('.book-btn')
+            bookBtn.addEventListener('click' , () => {
+                flightCard.style.marginLeft = "105%" ? console.log(`105`) : console.log('not')
+                
             })
-    
-            //checkout cart
-            const cartBox = document.querySelector('.cart-container')
+
             
