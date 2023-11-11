@@ -148,25 +148,7 @@ h3{
 }
 
 
-/* everything-container */
-
-.everything-container{
-    display: flex;
-}
-
-.cart-container{
-    /* background-color: transparent;
-    width: 30%;
-    height: 300px;
-    line-height: 1.6rem;
-    margin-top: 0.7%;
-    padding-left: 1%;
-    padding-top: 1.5%;
-    border-radius: 20px; */
-    /* display: none; */
-
-}
-
+/* right side */
 
 .cart{
     width: 70px;
@@ -189,6 +171,25 @@ h3{
     font-size: 1.4rem;
 }
 
+.book-btn{
+    background-color: purple;
+    color: wheat;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 32%;
+    left: 45.3%;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+}
+.book-btn:hover{
+    background-color: rgb(167, 131, 131);
+    color:black;
+}
+
 /* inputs */
 .change-input{
     background-color: transparent;
@@ -203,3 +204,53 @@ h3{
     outline: none;
 }
 
+
+/* confirm-flight popup */
+
+.confirm-flight{
+    background-color: skyblue;
+    border-radius: 20px;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 37%;
+    top: 40%;
+    display: none;
+}
+
+.total-price{
+    margin-top: 3%;
+    margin-left: 20%;
+    font-size: 1.4rem;
+}
+
+.confirm-btn{
+    margin-left: 20%;
+    background-color: gray;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.confirm-btn:hover{
+    background-color: white;
+    color: black;
+    opacity: 0.7;
+}
+
+.close-book{
+    background-color: transparent;
+    color: red;
+    border:none;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-left: 87%;
+    margin-top: 2%;
+}
+.close-book:hover{
+    opacity: 0.7;
+}

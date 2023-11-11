@@ -193,9 +193,33 @@ const flights = [
             
             //BOOK NOW
             const bookBtn = document.querySelector('.book-btn')
+            const confirmContainer = document.querySelector('.confirm-flight')
+            const closeBooking = document.querySelector('.close-book')
+            const totalPrice = document.querySelector('.price-of-flight')
+            const confirmBtn = document.querySelector('.confirm-btn')
+
+
             bookBtn.addEventListener('click' , () => {
-                flightCard.style.marginLeft = "105%" ? console.log(`105`) : console.log('not')
+                confirmContainer.style.display = "block"
+                let price = flights.map(p => p.price)
+                console.log(price)
+                let allPrice = price.reduce((accum , currVal) => {
+                    return accum + currVal
+                }, 0)
+                totalPrice.textContent = `${allPrice}$`
                 
             })
+
+            closeBooking.addEventListener('click' , () => {
+                confirmContainer.style.display = "none"
+            })
+
+            confirmBtn.addEventListener('click' , () => {
+                confirmContainer.style.display = "none"
+                alert(`Booking Confirmed! You have Paid : ${totalPrice.textContent}`)
+
+            })
+            
+
 
             
