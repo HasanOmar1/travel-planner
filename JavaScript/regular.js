@@ -3,22 +3,22 @@ const flights = [
             from: "Berlin",
             to:'Prague',
             price: 100,
-            depart: new Date ('11.28.2023'),
-            return: new Date ('12.12.2023')
+            depart: new Date ('11.28.2023').toDateString(),
+            return: new Date ('12.12.2023').toDateString()
         },
     {
             from: "TLV",
             to:'Berlin',
             price: 60,
-            depart: new Date ('11.28.2023'),
-            return: new Date ('12.12.2023')
+            depart: new Date ('11.28.2023').toDateString(),
+            return: new Date ('12.12.2023').toDateString()
         },
     {
             from: "London",
             to:'Lisbon',
             price: 80,
-            depart: new Date ('11.28.2023'),
-            return: new Date ('12.12.2023')
+            depart: new Date ('11.28.2023').toDateString(),
+            return: new Date ('12.12.2023').toDateString()
         },
         
     ]
@@ -117,6 +117,17 @@ const flights = [
                 })
                 showFlights(sorted)
             })
-        
+            
+            //log Out
+            const logOut = document.querySelector('.log-out')
+            logOut.addEventListener('click' , () => {
+                window.location.href = 'index.html'
+                localStorage.clear()
+            })
 
+            //Cart
+            const cart = document.querySelector('.cart')
+            cart.addEventListener('click' , () => {
+
+            })
     

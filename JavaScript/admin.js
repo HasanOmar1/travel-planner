@@ -4,24 +4,24 @@ const flights = [
             from: "Berlin",
             to:'Prague',
             price: 100,
-            depart: new Date ('11.28.2023'),
-            return: new Date ('12.12.2023')
+            depart: new Date ('11.28.2023').toDateString(),
+            return: new Date ('12.12.2023').toDateString()
         },
     {
             id: 1,
             from: "TLV",
             to:'Berlin',
             price: 60,
-            depart: new Date ('11.28.2023'),
-            return: new Date ('12.12.2023')
+            depart: new Date ('11.28.2023').toDateString(),
+            return: new Date ('12.12.2023').toDateString()
         },
     {
             id: 2,
             from: "London",
             to:'Lisbon',
             price: 80,
-            depart: new Date ('11.28.2023'),
-            return: new Date ('12.12.2023')
+            depart: new Date ('11.28.2023').toDateString(),
+            return: new Date ('12.12.2023').toDateString()
         },
         
     ]
@@ -74,7 +74,7 @@ const flights = [
             const dep = document.createElement('h3')
             const departurePara = document.createElement('p')
             dep.textContent = `Departure `
-            departurePara.textContent = flight.depart;
+            departurePara.textContent = flight.depart
             dep.classList.add('dep')
             departurePara.classList.add('small')
             departureAndReturn.appendChild(dep)
@@ -194,10 +194,10 @@ const flights = [
 
     const idInput = document.querySelector('.id-input')
     const newPriceInput = document.querySelector('.update-price-input')
-    function updatePrice(id , newPrice){
+    function updatePrice(){
         const getId = flights.map((id) => id.id)
-        id = idInput.value
-        newPrice = newPriceInput.value
+        let id = idInput.value
+        let newPrice = newPriceInput.value
         if(getId.indexOf(+id) !== -1){
          const prices = flights.filter(p => p.price)
          prices[id].price = newPrice

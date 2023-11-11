@@ -7,13 +7,21 @@
     <link rel="stylesheet" href="./styles/regular.css" />
   </head>
   <body>
-    <div class="bar"></div>
+    <div class="bar">
+      <img class="cart" src="/assets/icons8-cart-100.png" alt="shopping cart" />
+      <button class="log-out">Log Out</button>
+    </div>
     <div class="search-bar">
       <label for="Search">Search:</label>
       <input type="text" class="search" placeholder="search for flights" />
       <button class="sort-by-price">Sort by Price</button>
     </div>
-    <div class="flights"></div>
+
+    <div class="everything-container">
+      <div class="flights"></div>
+
+      <div class="cart-container"></div>
+    </div>
     <script src="./JavaScript/regular.js"></script>
   </body>
 </html>
