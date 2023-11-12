@@ -25,3 +25,7 @@ Added localstorage to save the login info.
 - Localstorage all the flights instead the ones i bought.
 - Adding a flight to cart then removing still counts towards the total price.
 - Sorting by price then booking makes all tickets prices = 100 .
+
+### Site's Link :
+
+https://traveling-agency-i-think.netlify.app/
