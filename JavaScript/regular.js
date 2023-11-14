@@ -178,7 +178,6 @@ const flights = [
                         total = flight.price * travelersInput.value 
                         priceTotalArr.push(total)
                         priceTotalArr.splice(addToCartBtn.id , 1)
-                        console.log(priceTotalArr)
                         let valueOfFlight = priceTotalArr.reduce((acc , curr) => {
                             return acc + curr
                             
@@ -200,7 +199,6 @@ const flights = [
                         addToCartBtn.style.display = 'block'
                         let newValueOfFlight = valueOfFlight - flight.price
                         priceTotalArr.splice(addToCartBtn.id , 1)
-                        console.log(priceTotalArr)
                         totalPrice.textContent = `${newValueOfFlight}$`
 
                         toInput.readOnly = true;
