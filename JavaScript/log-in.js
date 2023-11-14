@@ -38,23 +38,19 @@ form.addEventListener('submit', (e) =>{
         showError(confirmPassword, "passwords do not match");
         isValid = false;
     }
-    if(checkBox.checked === false){
-        if(isValid){
-            
+    if(isValid && checkBox.checked === false){  
         localStorage.getItem('username')
         localStorage.getItem('email')
         localStorage.getItem('password')
         window.location.href = 'regular.html'
-        }
+        
     }
-    if(checkBox.checked === true){
-    if(isValid){
+    if(isValid && checkBox.checked === true){ 
         localStorage.getItem('username')
         localStorage.getItem('email')
         localStorage.getItem('password')
         console.log(`Admin Mode`)
         window.location.href = 'admin.html'
-    }
 }
   
 })
