@@ -45,6 +45,12 @@ const flights = [
             flightCard.classList.add('flights-card')
             flightsBox.appendChild(flightCard)
 
+            //flight id
+            const flightIdP = document.createElement('p')
+            flightIdP.textContent = flight.id
+            flightIdP.classList.add('small')
+            flightCard.appendChild(flightIdP)
+
             const fromToDiv = document.createElement('div')
             fromToDiv.classList.add('from-to')
             flightCard.appendChild(fromToDiv)
