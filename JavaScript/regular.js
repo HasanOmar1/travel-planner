@@ -32,6 +32,8 @@ const flights = [
     const totalPrice = document.querySelector('.price-of-flight')
     const confirmBtn = document.querySelector('.confirm-btn')
 
+    const ids = flights.map(id => id.id)
+
     const flightsBox = document.querySelector('.flights')
     let priceTotalArr = []
     function showFlights(flight){
@@ -110,16 +112,31 @@ const flights = [
             addToCartBtn.classList.add('add-to-cart-btn')
             addToCartBtn.id = flight.id
             flightCard.append(addToCartBtn)
-            
+
+            const travelersDiv = document.createElement('div')
+            const travelersLabel = document.createElement('h4')
+            const travelersInput = document.createElement('input')
+
+            flightCard.appendChild(travelersDiv)
+            travelersDiv.appendChild(travelersLabel)
+            travelersDiv.appendChild(travelersInput)
+            travelersLabel.textContent = `Travelers: `
+            travelersInput.type = 'number'
+            travelersInput.value = 1
+            travelersInput.classList.add(`trav-input`)
+            travelersLabel.style.display = 'none'
+            travelersInput.style.display = 'none'
+
 
             const fromInput = document.createElement('input')
             const toInput = document.createElement('input')
 
             // add to cart button event listener
-            // add to cart button event listener
             addToCartBtn.addEventListener('click' , () => {
                 removeFromCartBtn.style.display = 'block'
                 addToCartBtn.style.display = 'none'
+                travelersLabel.style.display = 'block'
+                travelersInput.style.display = 'block'
 
                 //Edit from
                 fromPara.addEventListener('click' , () => {
@@ -150,15 +167,26 @@ const flights = [
                     })
                 })
             })
-
+          
             let inCart = document.querySelector('.in-cart')
             addToCartBtn.addEventListener('click', () => {
 
                     inCart.appendChild(flightCard)
                     let total = 0;
-                    total += flight.price
+                    total = flight.price * travelersInput.value
+                    travelersInput.addEventListener('input' , () => {
+                        total = flight.price * travelersInput.value 
+                        priceTotalArr.push(total)
+                        priceTotalArr.splice(addToCartBtn.id , 1)
+                        console.log(priceTotalArr)
+                        let valueOfFlight = priceTotalArr.reduce((acc , curr) => {
+                            return acc + curr
+                            
+                        } , 0)
+                        totalPrice.textContent = `${valueOfFlight}$`
+                        
+                    })
                     priceTotalArr.push(total)
-                    console.log(priceTotalArr)
                     addToCartBtn.id = priceTotalArr.indexOf(flight.price)
                     let valueOfFlight = priceTotalArr.reduce((acc , curr) => {
                         return acc + curr
@@ -174,8 +202,12 @@ const flights = [
                         priceTotalArr.splice(addToCartBtn.id , 1)
                         console.log(priceTotalArr)
                         totalPrice.textContent = `${newValueOfFlight}$`
+
                         toInput.readOnly = true;
                         fromInput.readOnly = true;
+                        travelersLabel.style.display = 'none'
+                        travelersInput.style.display = 'none'
+
                         addToCartBtn.addEventListener('click' , () => {
                         toInput.readOnly = false;
                         fromInput.readOnly = false;
@@ -185,15 +217,15 @@ const flights = [
                     })
             })
 
+
             bookBtn.addEventListener('click' , () => {
                 confirmContainer.style.display = "block"
                 
             }) 
         })
-        }
+    }
     showFlights(flights)
-
-
+    
     //search bar
         //filtered by from / to
         let searchBar = document.querySelector('.search')
