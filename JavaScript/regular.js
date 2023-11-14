@@ -108,6 +108,7 @@ const flights = [
             const addToCartBtn = document.createElement('button')
             addToCartBtn.textContent = `Add to Cart`
             addToCartBtn.classList.add('add-to-cart-btn')
+            addToCartBtn.id = flight.id
             flightCard.append(addToCartBtn)
             
 
@@ -115,9 +116,9 @@ const flights = [
             const toInput = document.createElement('input')
 
             // add to cart button event listener
+            // add to cart button event listener
             addToCartBtn.addEventListener('click' , () => {
                 removeFromCartBtn.style.display = 'block'
-                flightCard.style.marginLeft = "105%" 
                 addToCartBtn.style.display = 'none'
 
                 //Edit from
@@ -149,51 +150,50 @@ const flights = [
                     })
                 })
             })
-            //remove from cart button event listener [x]
-            removeFromCartBtn.addEventListener('click' , () => {
-                flightCard.style.marginLeft = "10%" 
-                removeFromCartBtn.style.display = 'none'
-                addToCartBtn.style.display = 'block'
-                toInput.readOnly = true;
-                fromInput.readOnly = true;
-                addToCartBtn.addEventListener('click' , () => {
-                    toInput.readOnly = false;
-                    fromInput.readOnly = false;
-                })
-            })   
-            
+
+            let inCart = document.querySelector('.in-cart')
             addToCartBtn.addEventListener('click', () => {
-                let idOfBtn = +addToCartBtn.id 
-                const getId = flights.map(id => id.id)
-                const price = flights.map(p => p.price)
-                for(let i = 0 ; i < getId.length ; i++){
-                if(idOfBtn === getId[i]){
-                total = 0 + price[idOfBtn]
-                priceTotalArr.push(total)
-                let ValueOfAll = priceTotalArr.reduce((accum,curVal) => {
-                    return accum + curVal
-                },0)
-                totalPrice.textContent = `${ValueOfAll}$`
-            }
 
-            }
+                    inCart.appendChild(flightCard)
+                    let total = 0;
+                    total += flight.price
+                    priceTotalArr.push(total)
+                    console.log(priceTotalArr)
+                    addToCartBtn.id = priceTotalArr.indexOf(flight.price)
+                    let valueOfFlight = priceTotalArr.reduce((acc , curr) => {
+                        return acc + curr
+                        
+                    } , 0)
+                    totalPrice.textContent = `${valueOfFlight}$`
+                    
+                    removeFromCartBtn.addEventListener('click' , () => { 
+                        flightsBox.appendChild(flightCard)
+                        removeFromCartBtn.style.display = 'none'
+                        addToCartBtn.style.display = 'block'
+                        let newValueOfFlight = valueOfFlight - flight.price
+                        priceTotalArr.splice(addToCartBtn.id , 1)
+                        console.log(priceTotalArr)
+                        totalPrice.textContent = `${newValueOfFlight}$`
+                        toInput.readOnly = true;
+                        fromInput.readOnly = true;
+                        addToCartBtn.addEventListener('click' , () => {
+                        toInput.readOnly = false;
+                        fromInput.readOnly = false;
+                })
 
+                        
+                    })
             })
+
             bookBtn.addEventListener('click' , () => {
                 confirmContainer.style.display = "block"
                 
             }) 
         })
-    }
+        }
     showFlights(flights)
 
-    //hardcoded [could'nt do it without it]
-    const allBtns = document.querySelectorAll('button')
-    allBtns[3].setAttribute('id' , 0)
-    allBtns[5].setAttribute('id' , 1)
-    allBtns[7].setAttribute('id' , 2)
 
-    
     //search bar
         //filtered by from / to
         let searchBar = document.querySelector('.search')
