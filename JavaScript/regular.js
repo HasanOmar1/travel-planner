@@ -26,6 +26,7 @@ const flights = [
         
     ]
 
+    const myFlights = []
     const bookBtn = document.querySelector('.book-btn')
     const confirmContainer = document.querySelector('.confirm-flight')
     const closeBooking = document.querySelector('.close-book')
@@ -170,7 +171,7 @@ const flights = [
           
             let inCart = document.querySelector('.in-cart')
             addToCartBtn.addEventListener('click', () => {
-
+                myFlights.push(flight)
                     inCart.appendChild(flightCard)
                     let total = 0;
                     total = flight.price * travelersInput.value
@@ -194,6 +195,7 @@ const flights = [
                     totalPrice.textContent = `${valueOfFlight}$`
                     
                     removeFromCartBtn.addEventListener('click' , () => { 
+                        myFlights.splice(addToCartBtn.id , 1)
                         flightsBox.appendChild(flightCard)
                         removeFromCartBtn.style.display = 'none'
                         addToCartBtn.style.display = 'block'
@@ -260,7 +262,7 @@ const flights = [
 
             confirmBtn.addEventListener('click' , () => {
                 confirmContainer.style.display = "none"
-                localStorage.setItem('myFlights' , JSON.stringify(flights))
+                localStorage.setItem('myFlights' , JSON.stringify(myFlights))
                 localStorage.getItem('myFlights')
                 alert(`Booking Confirmed! You have Paid : ${totalPrice.textContent}`)
                 window.location.href = window.location.href
