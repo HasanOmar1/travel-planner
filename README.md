@@ -22,8 +22,8 @@ Added localstorage to save the login info.
 
 [in user mode]
 
-- Localstorage all the flights instead the ones i bought.
 - Removing first flight after adding more than one , bugs the flight price.
+- Removing first flight after adding more than one , bugs the Localstorage.
 
 ### Site's Link :
 
